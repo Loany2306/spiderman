@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Spiderman No Home</title>
+    <style>
+        body {
+            background-color: #e6ce57;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .titulo {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: bold;
+            position: absolute;
+            top: 25px;
+            z-index: 30;
+        }
+
+        .escena {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Spiderman principal */
+        .spiderman-container {
+            position: absolute;
+            top: 15%;
+            z-index: 5;
+            transform-origin: top center;
+            animation: bajar 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards, balancear 3s ease-in-out 1.8s infinite alternate;
+        }
+
+        /* Pixel art de Spiderman */
+        .spider-man {
+            position: relative;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            box-shadow: 
+                0 4px 0 #fff, 0 8px 0 #fff, 0 12px 0 #fff, 0 16px 0 #fff, 0 20px 0 #fff, 0 24px 0 #fff, 0 28px 0 #fff,
+                0 32px 0 #000, -4px 32px 0 #ed1c24, 4px 32px 0 #ed1c24,
+                -8px 36px 0 #000, -4px 36px 0 #ed1c24, 0 36px 0 #ed1c24, 4px 36px 0 #ed1c24, 8px 36px 0 #000,
+                -12px 40px 0 #000, -8px 40px 0 #ed1c24, -4px 40px 0 #ed1c24, 4px 40px 0 #ed1c24, 8px 40px 0 #ed1c24, 12px 40px 0 #000,
+                -16px 44px 0 #000, -12px 44px 0 #2880ca, -8px 44px 0 #000, -4px 44px 0 #ed1c24, 4px 44px 0 #ed1c24, 8px 44px 0 #000, 12px 44px 0 #2880ca, 16px 44px 0 #000,
+                -20px 48px 0 #000, -16px 48px 0 #2880ca, -12px 48px 0 #2880ca, -8px 48px 0 #000, 8px 48px 0 #000, 12px 48px 0 #2880ca, 16px 48px 0 #2880ca, 20px 48px 0 #000,
+                -20px 52px 0 #000, -16px 52px 0 #2880ca, -12px 52px 0 #000, -8px 52px 0 #ed1c24, -4px 52px 0 #000, 0 52px 0 #fff, 4px 52px 0 #000, 8px 52px 0 #ed1c24, 12px 52px 0 #000, 16px 52px 0 #2880ca, 20px 52px 0 #000,
+                -16px 56px 0 #000, -12px 56px 0 #ed1c24, -8px 56px 0 #ed1c24, -4px 56px 0 #ed1c24, 0 56px 0 #ed1c24, 4px 56px 0 #ed1c24, 8px 56px 0 #ed1c24, 12px 56px 0 #ed1c24, 16px 56px 0 #000,
+                -12px 60px 0 #000, -8px 60px 0 #000, -4px 60px 0 #2880ca, 0 60px 0 #ed1c24, 4px 60px 0 #2880ca, 8px 60px 0 #000, 12px 60px 0 #000,
+                -12px 64px 0 #000, -8px 64px 0 #000, -4px 64px 0 #2880ca, 0 64px 0 #ed1c24, 4px 64px 0 #2880ca, 8px 64px 0 #000, 12px 64px 0 #000,
+                -16px 68px 0 #000, -12px 68px 0 #ed1c24, -8px 68px 0 #ed1c24, -4px 68px 0 #ed1c24, 0 68px 0 #ed1c24, 4px 68px 0 #ed1c24, 8px 68px 0 #ed1c24, 12px 68px 0 #ed1c24, 16px 68px 0 #000,
+                -12px 72px 0 #000, -8px 72px 0 #ed1c24, -4px 72px 0 #ed1c24, 0 72px 0 #ed1c24, 4px 72px 0 #ed1c24, 8px 72px 0 #ed1c24, 12px 72px 0 #000,
+                -16px 76px 0 #000, -12px 76px 0 #ed1c24, -8px 76px 0 #ed1c24, -4px 76px 0 #ed1c24, 0 76px 0 #ed1c24, 4px 76px 0 #ed1c24, 8px 76px 0 #ed1c24, 12px 76px 0 #ed1c24, 16px 76px 0 #000,
+                -16px 80px 0 #000, -12px 80px 0 #000, -8px 80px 0 #ed1c24, -4px 80px 0 #ed1c24, 0 80px 0 #ed1c24, 4px 80px 0 #ed1c24, 8px 80px 0 #000, 12px 80px 0 #000, 16px 80px 0 #000,
+                -16px 84px 0 #000, -12px 84px 0 #fff, -8px 84px 0 #000, -4px 84px 0 #ed1c24, 0 84px 0 #ed1c24, 4px 84px 0 #000, 8px 84px 0 #fff, 12px 84px 0 #000, 16px 84px 0 #000,
+                -16px 88px 0 #000, -12px 88px 0 #fff, -8px 88px 0 #000, -4px 88px 0 #ed1c24, 0 88px 0 #ed1c24, 4px 88px 0 #000, 8px 88px 0 #fff, 12px 88px 0 #000, 16px 88px 0 #000,
+                -16px 92px 0 #000, -12px 92px 0 #000, -8px 92px 0 #ed1c24, -4px 92px 0 #ed1c24, 0 92px 0 #ed1c24, 4px 92px 0 #ed1c24, 8px 92px 0 #000, 12px 92px 0 #000, 16px 92px 0 #000,
+                -16px 96px 0 #000, -12px 96px 0 #ed1c24, -8px 96px 0 #ed1c24, -4px 96px 0 #ed1c24, 0 96px 0 #ed1c24, 4px 96px 0 #ed1c24, 8px 96px 0 #ed1c24, 12px 96px 0 #ed1c24, 16px 96px 0 #000,
+                -16px 100px 0 #000, -12px 100px 0 #ed1c24, -8px 100px 0 #ed1c24, -4px 100px 0 #ed1c24, 0 100px 0 #ed1c24, 4px 100px 0 #ed1c24, 8px 100px 0 #ed1c24, 12px 100px 0 #ed1c24, 16px 100px 0 #000,
+                -12px 104px 0 #000, -8px 104px 0 #ed1c24, -4px 104px 0 #ed1c24, 0 104px 0 #ed1c24, 4px 104px 0 #ed1c24, 8px 104px 0 #ed1c24, 12px 104px 0 #000,
+                -8px 108px 0 #000, -4px 108px 0 #000, 0 108px 0 #000, 4px 108px 0 #000, 8px 108px 0 #000;
+        }
+
+        /* MANITA PEQUEÑA EN LA MUÑECA DEL MUÑECO */
+        .mano-pequena {
+            position: absolute;
+            top: 70px;
+            left: 20px;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            z-index: 10;
+            opacity: 0;
+            box-shadow:
+                /* Dedos con la seña del Spiderman */
+                -2px -6px 0 #ed1c24, 2px -6px 0 #ed1c24,
+                -2px -4px 0 #ed1c24, 0 -4px 0 #000, 2px -4px 0 #ed1c24,
+                -2px -2px 0 #ed1c24, 0 -2px 0 #000, 2px -2px 0 #ed1c24,
+                -2px 0 0 #ed1c24, 0 0 0 #ed1c24, 2px 0 0 #ed1c24,
+                -2px 2px 0 #000, 0 2px 0 #2880ca, 2px 2px 0 #000;
+            animation: extensionMano 1.3s ease-out 4s forwards;
+        }
+
+        /* Contenedor de la telaraña gigante */
+        .telarana-pixel-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 15;
+            transform-origin: center center;
+            transform: scale(0);
+            opacity: 0;
+            /* Sale directamente después del gesto de la mano */
+            animation: disparoPixelTelarana 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) 5s forwards;
+        }
+
+        /* SVG Pixel Art con estructura de telaraña */
+        .telarana-pixel-svg {
+            width: 100vw;
+            height: 100vh;
+            shape-rendering: crispEdges;
+            filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.8));
+        }
+
+        /* Nombre sobre la telaraña */
+        .nombre {
+            position: absolute;
+            z-index: 25;
+            font-size: 56px;
+            font-weight: 900;
+            color: #000;
+            text-align: center;
+            letter-spacing: 3px;
+            text-shadow: 4px 4px 0px #fff, -4px -4px 0px #fff, 4px -4px 0px #fff, -4px 4px 0px #fff;
+            opacity: 0;
+            transform: scale(0.1);
+            animation: aparecerNombre 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 6s forwards;
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes bajar {
+            0% {
+                transform: scale(3.2) translateY(-750px);
+            }
+            100% {
+                transform: scale(3.2) translateY(0px);
+            }
+        }
+
+        @keyframes balancear {
+            0% {
+                transform: scale(3.2) translateY(0px) rotate(-5deg);
+            }
+            100% {
+                transform: scale(3.2) translateY(0px) rotate(5deg);
+            }
+        }
+
+        /* Extensión suave de la manita justo antes de disparar */
+        @keyframes extensionMano {
+            0% {
+                opacity: 0;
+                transform: scale(0.2) translate(-10px, 10px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.3) translate(0, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        @keyframes disparoPixelTelarana {
+            0% {
+                transform: scale(0.05);
+                opacity: 0;
+            }
+            75% {
+                transform: scale(1.12);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes aparecerNombre {
+            0% {
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="titulo">Spiderman No Home</div>
+    
+    <div class="escena">
+        <!-- Spiderman colgado atrás con su mano integrada -->
+        <div class="spiderman-container">
+            <div class="spider-man">
+                <!-- Manita pequeña en su brazo derecho -->
+                <div class="mano-pequena"></div>
+            </div>
+        </div>
+
+        <!-- Telaraña Pixel Art -->
+        <div class="telarana-pixel-container">
+            <svg class="telarana-pixel-svg" viewBox="0 0 200 200" preserveAspectRatio="none">
+                <!-- Hilos de la telaraña -->
+                <path d="M100 0 v200 M0 100 h200" stroke="#ffffff" stroke-width="3" />
+                <path d="M0 0 L200 200 M200 0 L0 200" stroke="#ffffff" stroke-width="2" />
+
+                <!-- Capas de la red -->
+                <polygon points="100,80 120,80 120,100 120,120 100,120 80,120 80,100 80,80" fill="none" stroke="#ffffff" stroke-width="2" />
+                <polygon points="100,60 140,60 140,100 140,140 100,140 60,140 60,100 60,60" fill="none" stroke="#ffffff" stroke-width="2" />
+                <polygon points="100,40 160,40 160,100 160,160 100,160 40,160 40,100 40,40" fill="none" stroke="#ffffff" stroke-width="2.5" />
+                <polygon points="100,15 185,15 185,100 185,185 100,185 15,185 15,100 15,15" fill="none" stroke="#ffffff" stroke-width="3" />
+                
+                <!-- Nodos intermedios -->
+                <rect x="97" y="37" width="6" height="6" fill="#ffffff" />
+                <rect x="157" y="37" width="6" height="6" fill="#ffffff" />
+                <rect x="157" y="97" width="6" height="6" fill="#ffffff" />
+                <rect x="157" y="157" width="6" height="6" fill="#ffffff" />
+                <rect x="97" y="157" width="6" height="6" fill="#ffffff" />
+                <rect x="37" y="157" width="6" height="6" fill="#ffffff" />
+                <rect x="37" y="97" width="6" height="6" fill="#ffffff" />
+                <rect x="37" y="37" width="6" height="6" fill="#ffffff" />
+            </svg>
+            
+            <div class="nombre">Hola, Andre soy spiderman</div>
+        </div>
+    </div>
+
+</body>
+</html>
+</html>
